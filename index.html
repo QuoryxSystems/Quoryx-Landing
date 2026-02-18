@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quoryx | Intercompany Financial Management Technology</title>
+    <meta name="description" content="Quoryx builds intercompany financial management technology for SMB business groups. Automate reconciliation, consolidation, and reporting across Xero and QuickBooks.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Supply:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e8e8e8;
+            --text-dim: #8a8a8a;
+            --accent: #00ff88;
+            --accent-dim: #004422;
+            --border: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Supply', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Grid background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--accent-dim);
+            border: 1px solid var(--accent);
+            border-radius: 24px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 40px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        h1 {
+            font-family: 'Supply', sans-serif;
+            font-size: clamp(40px, 6vw, 72px);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+        
+        h1 strong {
+            font-weight: 400;
+            color: var(--accent);
+        }
+        
+        .subtitle {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.5;
+        }
+        
+        /* Email capture */
+        .waitlist {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .waitlist-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .waitlist input {
+            flex: 1;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .waitlist input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .waitlist button {
+            padding: 16px 32px;
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'IBM Plex Mono', monospace;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .waitlist button:hover {
+            background: #00dd77;
+            transform: translateY(-2px);
+        }
+        
+        .privacy-note {
+            font-size: 13px;
+            color: var(--text-dim);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .feature:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+        
+        .feature p {
+            color: var(--text-dim);
+            font-size: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .footer-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .waitlist-form {
+                flex-direction: column;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Quoryx</div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    In Development
+                </div>
+                
+                <h1>
+                    Intercompany Financial<br>Management <strong>Technology</strong>
+                </h1>
+                
+                <p class="subtitle">
+                    We build automation technology for SMB business groups on Xero and QuickBooks. 
+                    Eliminate manual reconciliation. Consolidate multi-entity financials. 
+                    Transform your month-end close.
+                </p>
+                
+                <div class="waitlist">
+                    <form class="waitlist-form" action="#" method="post">
+                        <input type="email" placeholder="your@email.com" required>
+                        <button type="submit">Join Waitlist</button>
+                    </form>
+                    <p class="privacy-note">Early access • No spam • Unsubscribe anytime</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Automated Reconciliation</h3>
+                        <p>Match intercompany transactions across entities automatically. No more manual Excel reconciliations.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Multi-Entity Consolidation</h3>
+                        <p>Consolidate financials across your entire business group with one-click intercompany eliminations.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Native Integration</h3>
+                        <p>Built directly on Xero and QuickBooks APIs. Seamless connection to your existing accounting workflow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2026 Quoryx Services • Copenhagen, Denmark
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:hello@quoryx.net">Contact</a>
+                    <a href="#privacy">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
