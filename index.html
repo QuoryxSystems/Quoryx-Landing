@@ -3,361 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quoryx | Intercompany Financial Management Technology</title>
-    <meta name="description" content="Quoryx builds intercompany financial management technology for SMB business groups. Automate reconciliation, consolidation, and reporting across Xero and QuickBooks.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Supply:wght@300;400&display=swap" rel="stylesheet">
-    
+    <title>Quoryx - Intercompany Financial Management Technology</title>
     <style>
-        :root {
-            --bg: #0a0a0a;
-            --text: #e8e8e8;
-            --text-dim: #8a8a8a;
-            --accent: #00ff88;
-            --accent-dim: #004422;
-            --border: #1a1a1a;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Supply', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
             overflow-x: hidden;
         }
-        
-        /* Grid background effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.3;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
+
         .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
             position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
         }
-        
-        /* Header */
-        header {
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border);
+
+        /* Logo Animation */
+        .logo-container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 3rem;
         }
-        
-        .logo {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--accent);
+
+        .dot {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: convergeDot 6s ease-out forwards;
+        }
+
+        /* Define dot sizes based on the pattern */
+        .dot.size-large {
+            width: 20px;
+            height: 20px;
+        }
+
+        .dot.size-medium {
+            width: 16px;
+            height: 16px;
+        }
+
+        .dot.size-small {
+            width: 10px;
+            height: 10px;
+        }
+
+        .dot.size-tiny {
+            width: 5px;
+            height: 5px;
+        }
+
+        .dot.hollow {
+            background: transparent;
+            border: 2.5px solid #ffffff;
+        }
+
+        @keyframes convergeDot {
+            0% {
+                opacity: 0;
+                transform: translate(var(--start-x), var(--start-y)) scale(0.3);
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        .company-name {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 5s forwards;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: #888888;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 5.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #333333;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 6s forwards;
         }
-        
-        /* Hero */
-        .hero {
-            padding: 120px 0 80px;
+
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 500px;
+            width: 100%;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 6.5s forwards;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: 1px solid #333333;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .email-input:focus {
+            border-color: #666666;
+        }
+
+        .email-input::placeholder {
+            color: #555555;
+        }
+
+        .submit-btn {
+            padding: 1rem 2rem;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #cccccc;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 6rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 7s forwards;
+        }
+
+        .feature {
             text-align: center;
         }
-        
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--accent-dim);
-            border: 1px solid var(--accent);
-            border-radius: 24px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 13px;
-            color: var(--accent);
-            margin-bottom: 40px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-        
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-        
-        h1 {
-            font-family: 'Supply', sans-serif;
-            font-size: clamp(40px, 6vw, 72px);
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-        }
-        
-        h1 strong {
-            font-weight: 400;
-            color: var(--accent);
-        }
-        
-        .subtitle {
-            font-size: clamp(18px, 2.5vw, 24px);
-            color: var(--text-dim);
-            max-width: 700px;
-            margin: 0 auto 60px;
-            line-height: 1.5;
-        }
-        
-        /* Email capture */
-        .waitlist {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .waitlist-form {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        
-        .waitlist input {
-            flex: 1;
-            padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text);
-            font-size: 16px;
-            font-family: inherit;
-            transition: all 0.3s;
-        }
-        
-        .waitlist input:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        .waitlist button {
-            padding: 16px 32px;
-            background: var(--accent);
-            color: var(--bg);
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            font-family: 'IBM Plex Mono', monospace;
-            cursor: pointer;
-            transition: all 0.3s;
+
+        .feature-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
-        
-        .waitlist button:hover {
-            background: #00dd77;
-            transform: translateY(-2px);
+
+        .feature-description {
+            font-size: 0.85rem;
+            color: #888888;
+            line-height: 1.6;
+            font-weight: 300;
         }
-        
-        .privacy-note {
-            font-size: 13px;
-            color: var(--text-dim);
-            font-family: 'IBM Plex Mono', monospace;
-        }
-        
-        /* Features */
-        .features {
-            padding: 80px 0;
-            border-top: 1px solid var(--border);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .feature {
-            padding: 32px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            transition: all 0.3s;
-        }
-        
-        .feature:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-        }
-        
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        
-        .feature h3 {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 18px;
-            margin-bottom: 12px;
-            color: var(--accent);
-        }
-        
-        .feature p {
-            color: var(--text-dim);
-            font-size: 15px;
-        }
-        
-        /* Footer */
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            margin-top: 80px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
-        }
-        
-        .footer-text {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 14px;
-            color: var(--text-dim);
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 32px;
-        }
-        
-        .footer-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
+
         @media (max-width: 768px) {
-            .hero {
-                padding: 80px 0 60px;
+            .company-name {
+                font-size: 2rem;
             }
-            
-            .waitlist-form {
+
+            .tagline {
+                font-size: 0.85rem;
+            }
+
+            .email-form {
                 flex-direction: column;
             }
-            
-            .features-grid {
+
+            .features {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 4rem;
             }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
+
+            .logo-container {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">Quoryx</div>
-        </div>
-    </header>
-    
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="status-badge">
-                    <span class="status-dot"></span>
-                    In Development
-                </div>
-                
-                <h1>
-                    Intercompany Financial<br>Management <strong>Technology</strong>
-                </h1>
-                
-                <p class="subtitle">
-                    We build automation technology for SMB business groups on Xero and QuickBooks. 
-                    Eliminate manual reconciliation. Consolidate multi-entity financials. 
-                    Transform your month-end close.
-                </p>
-                
-                <div class="waitlist">
-                    <form class="waitlist-form" action="#" method="post">
-                        <input type="email" placeholder="your@email.com" required>
-                        <button type="submit">Join Waitlist</button>
-                    </form>
-                    <p class="privacy-note">Early access • No spam • Unsubscribe anytime</p>
-                </div>
-            </div>
-        </section>
+    <div class="container">
+        <div class="logo-container" id="logoContainer"></div>
         
-        <section class="features">
-            <div class="container">
-                <div class="features-grid">
-                    <div class="feature">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Automated Reconciliation</h3>
-                        <p>Match intercompany transactions across entities automatically. No more manual Excel reconciliations.</p>
-                    </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">🔄</div>
-                        <h3>Multi-Entity Consolidation</h3>
-                        <p>Consolidate financials across your entire business group with one-click intercompany eliminations.</p>
-                    </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Native Integration</h3>
-                        <p>Built directly on Xero and QuickBooks APIs. Seamless connection to your existing accounting workflow.</p>
-                    </div>
-                </div>
+        <h1 class="company-name">QUORYX</h1>
+        
+        <p class="tagline">Intercompany Financial Management Technology</p>
+        
+        <div class="status-badge">In Development</div>
+        
+        <form class="email-form" onsubmit="event.preventDefault(); alert('Thank you for your interest. We will contact you soon.');">
+            <input type="email" class="email-input" placeholder="your@email.com" required>
+            <button type="submit" class="submit-btn">JOIN WAITLIST</button>
+        </form>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-title">Automated Reconciliation</div>
+                <div class="feature-description">Eliminate manual intercompany transaction matching. Automated discrepancy detection and resolution.</div>
             </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    © 2026 Quoryx Services • Copenhagen, Denmark
-                </div>
-                <div class="footer-links">
-                    <a href="mailto:hello@quoryx.net">Contact</a>
-                    <a href="#privacy">Privacy</a>
-                </div>
+            <div class="feature">
+                <div class="feature-title">Multi-Entity Consolidation</div>
+                <div class="feature-description">Consolidated financial statements with automatic intercompany eliminations across your entire group.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-title">Native Integration</div>
+                <div class="feature-description">Built natively for Xero and QuickBooks. Seamless API integration with your existing accounting systems.</div>
             </div>
         </div>
-    </footer>
+    </div>
+
+    <script>
+        // QRX hexagon pattern - matching reference image exactly
+        const dotPattern = [
+            // CENTER - 1 large solid dot
+            { x: 100, y: 100, size: 'large', hollow: false },
+            
+            // RING 1 - 6 medium hollow circles (closest to center)
+            { x: 100, y: 78, size: 'medium', hollow: true },
+            { x: 119, y: 89, size: 'medium', hollow: true },
+            { x: 119, y: 111, size: 'medium', hollow: true },
+            { x: 100, y: 122, size: 'medium', hollow: true },
+            { x: 81, y: 111, size: 'medium', hollow: true },
+            { x: 81, y: 89, size: 'medium', hollow: true },
+            
+            // RING 2 - 12 medium solid dots
+            { x: 100, y: 60, size: 'medium', hollow: false },
+            { x: 115.5, y: 67.5, size: 'medium', hollow: false },
+            { x: 127, y: 80, size: 'medium', hollow: false },
+            { x: 138, y: 92.5, size: 'medium', hollow: false },
+            { x: 138, y: 107.5, size: 'medium', hollow: false },
+            { x: 127, y: 120, size: 'medium', hollow: false },
+            { x: 115.5, y: 132.5, size: 'medium', hollow: false },
+            { x: 100, y: 140, size: 'medium', hollow: false },
+            { x: 84.5, y: 132.5, size: 'medium', hollow: false },
+            { x: 73, y: 120, size: 'medium', hollow: false },
+            { x: 62, y: 107.5, size: 'medium', hollow: false },
+            { x: 62, y: 92.5, size: 'medium', hollow: false },
+            { x: 73, y: 80, size: 'medium', hollow: false },
+            { x: 84.5, y: 67.5, size: 'medium', hollow: false },
+            
+            // RING 3 - 18 small solid dots
+            { x: 100, y: 45, size: 'small', hollow: false },
+            { x: 114, y: 50, size: 'small', hollow: false },
+            { x: 127, y: 58, size: 'small', hollow: false },
+            { x: 138, y: 68, size: 'small', hollow: false },
+            { x: 147, y: 80, size: 'small', hollow: false },
+            { x: 153, y: 93, size: 'small', hollow: false },
+            { x: 155, y: 100, size: 'small', hollow: false },
+            { x: 153, y: 107, size: 'small', hollow: false },
+            { x: 147, y: 120, size: 'small', hollow: false },
+            { x: 138, y: 132, size: 'small', hollow: false },
+            { x: 127, y: 142, size: 'small', hollow: false },
+            { x: 114, y: 150, size: 'small', hollow: false },
+            { x: 100, y: 155, size: 'small', hollow: false },
+            { x: 86, y: 150, size: 'small', hollow: false },
+            { x: 73, y: 142, size: 'small', hollow: false },
+            { x: 62, y: 132, size: 'small', hollow: false },
+            { x: 53, y: 120, size: 'small', hollow: false },
+            { x: 47, y: 107, size: 'small', hollow: false },
+            { x: 45, y: 100, size: 'small', hollow: false },
+            { x: 47, y: 93, size: 'small', hollow: false },
+            { x: 53, y: 80, size: 'small', hollow: false },
+            { x: 62, y: 68, size: 'small', hollow: false },
+            { x: 73, y: 58, size: 'small', hollow: false },
+            { x: 86, y: 50, size: 'small', hollow: false },
+            
+            // RING 4 - 24 tiny dots (outermost)
+            { x: 100, y: 32, size: 'tiny', hollow: false },
+            { x: 111, y: 35, size: 'tiny', hollow: false },
+            { x: 122, y: 40, size: 'tiny', hollow: false },
+            { x: 132, y: 47, size: 'tiny', hollow: false },
+            { x: 141, y: 56, size: 'tiny', hollow: false },
+            { x: 149, y: 66, size: 'tiny', hollow: false },
+            { x: 156, y: 77, size: 'tiny', hollow: false },
+            { x: 161, y: 88, size: 'tiny', hollow: false },
+            { x: 165, y: 100, size: 'tiny', hollow: false },
+            { x: 161, y: 112, size: 'tiny', hollow: false },
+            { x: 156, y: 123, size: 'tiny', hollow: false },
+            { x: 149, y: 134, size: 'tiny', hollow: false },
+            { x: 141, y: 144, size: 'tiny', hollow: false },
+            { x: 132, y: 153, size: 'tiny', hollow: false },
+            { x: 122, y: 160, size: 'tiny', hollow: false },
+            { x: 111, y: 165, size: 'tiny', hollow: false },
+            { x: 100, y: 168, size: 'tiny', hollow: false },
+            { x: 89, y: 165, size: 'tiny', hollow: false },
+            { x: 78, y: 160, size: 'tiny', hollow: false },
+            { x: 68, y: 153, size: 'tiny', hollow: false },
+            { x: 59, y: 144, size: 'tiny', hollow: false },
+            { x: 51, y: 134, size: 'tiny', hollow: false },
+            { x: 44, y: 123, size: 'tiny', hollow: false },
+            { x: 39, y: 112, size: 'tiny', hollow: false },
+            { x: 35, y: 100, size: 'tiny', hollow: false },
+            { x: 39, y: 88, size: 'tiny', hollow: false },
+            { x: 44, y: 77, size: 'tiny', hollow: false },
+            { x: 51, y: 66, size: 'tiny', hollow: false },
+            { x: 59, y: 56, size: 'tiny', hollow: false },
+            { x: 68, y: 47, size: 'tiny', hollow: false },
+            { x: 78, y: 40, size: 'tiny', hollow: false },
+            { x: 89, y: 35, size: 'tiny', hollow: false },
+        ];
+
+        const logoContainer = document.getElementById('logoContainer');
+
+        dotPattern.forEach((dot, index) => {
+            const dotElement = document.createElement('div');
+            dotElement.className = `dot size-${dot.size}${dot.hollow ? ' hollow' : ''}`;
+            
+            // Calculate random starting position (scattered around the container)
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 100 + Math.random() * 200;
+            const startX = Math.cos(angle) * distance;
+            const startY = Math.sin(angle) * distance;
+            
+            // Set final position
+            dotElement.style.left = `${dot.x}px`;
+            dotElement.style.top = `${dot.y}px`;
+            
+            // Set CSS variables for animation
+            dotElement.style.setProperty('--start-x', `${startX}px`);
+            dotElement.style.setProperty('--start-y', `${startY}px`);
+            
+            // Stagger animation start times slightly
+            dotElement.style.animationDelay = `${index * 0.02}s`;
+            
+            logoContainer.appendChild(dotElement);
+        });
+    </script>
 </body>
 </html>
