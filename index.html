@@ -98,11 +98,22 @@
             font-weight: 300;
             letter-spacing: 0.15em;
             color: #888888;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             text-align: center;
             max-width: 600px;
             opacity: 0;
             animation: fadeInUp 1.5s ease-out 5.5s forwards;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #666666;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 500px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 5.8s forwards;
         }
 
         @keyframes fadeInUp {
@@ -124,9 +135,130 @@
             font-size: 0.75rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             opacity: 0;
             animation: fadeInUp 1.5s ease-out 6s forwards;
+        }
+
+        .problem-solution {
+            max-width: 700px;
+            width: 100%;
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 6.3s forwards;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .section-text {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #999999;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .how-it-works {
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 6.6s forwards;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #333333;
+            min-width: 40px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .step-description {
+            font-size: 0.8rem;
+            color: #888888;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .integrations {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 6.9s forwards;
+        }
+
+        .integration-title {
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666666;
+            margin-bottom: 1.5rem;
+        }
+
+        .integration-logos {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .integration-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: #444444;
+            padding: 1rem 2rem;
+            border: 1px solid #222222;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #666666;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 7.5s forwards;
+        }
+
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid #333333;
+            transition: border-color 0.3s;
+        }
+
+        .contact-info a:hover {
+            border-color: #666666;
         }
 
         .email-form {
@@ -135,7 +267,7 @@
             max-width: 500px;
             width: 100%;
             opacity: 0;
-            animation: fadeInUp 1.5s ease-out 6.5s forwards;
+            animation: fadeInUp 1.5s ease-out 7.2s forwards;
         }
 
         .email-input {
@@ -181,7 +313,7 @@
             width: 100%;
             margin-top: 6rem;
             opacity: 0;
-            animation: fadeInUp 1.5s ease-out 7s forwards;
+            animation: fadeInUp 1.5s ease-out 7.8s forwards;
         }
 
         .feature {
@@ -203,6 +335,56 @@
             font-weight: 300;
         }
 
+        .footer {
+            width: 100%;
+            padding: 3rem 2rem 2rem;
+            margin-top: 6rem;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .footer-company {
+            font-size: 0.8rem;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        .footer-location {
+            font-size: 0.8rem;
+            color: #444444;
+            font-weight: 300;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-link {
+            font-size: 0.8rem;
+            color: #666666;
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
         @media (max-width: 768px) {
             .company-name {
                 font-size: 2rem;
@@ -210,6 +392,10 @@
 
             .tagline {
                 font-size: 0.85rem;
+            }
+
+            .subtitle {
+                font-size: 0.75rem;
             }
 
             .email-form {
@@ -226,6 +412,31 @@
                 width: 150px;
                 height: 150px;
             }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .integration-logos {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-right {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -237,12 +448,72 @@
         
         <p class="tagline">Intercompany Financial Management Technology</p>
         
-        <div class="status-badge">In Development</div>
+        <p class="subtitle">For accounting firms managing multi-entity SMB clients on Xero and QuickBooks</p>
         
-        <form class="email-form" onsubmit="event.preventDefault(); alert('Thank you for your interest. We will contact you soon.');">
+        <div class="status-badge">In Development · Launching Q2 2026</div>
+        
+        <!-- Problem/Solution -->
+        <div class="problem-solution">
+            <div class="section-title">The Problem</div>
+            <p class="section-text">
+                Business groups running multiple entities spend 25+ hours monthly on manual intercompany reconciliation. 
+                Transactions recorded in one entity rarely match their counterparts, forcing accountants into endless Excel spreadsheets 
+                hunting for discrepancies.
+            </p>
+            
+            <div class="section-title">The Solution</div>
+            <p class="section-text">
+                Quoryx automates intercompany transaction matching and reconciliation natively within Xero and QuickBooks. 
+                Our platform identifies mismatches instantly, posts correcting journals automatically, and produces 
+                consolidated financial statements with zero manual intervention.
+            </p>
+        </div>
+        
+        <!-- How It Works -->
+        <div class="how-it-works">
+            <div class="section-title">How It Works</div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Connect</div>
+                        <div class="step-description">Link all entities in your group via OAuth integration</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Analyze</div>
+                        <div class="step-description">Automated matching engine identifies discrepancies across entities</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Reconcile</div>
+                        <div class="step-description">One-click correcting journals posted back to your accounting system</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Integration Logos -->
+        <div class="integrations">
+            <div class="integration-title">Native Integration With</div>
+            <div class="integration-logos">
+                <div class="integration-logo">XERO</div>
+                <div class="integration-logo">QUICKBOOKS</div>
+            </div>
+        </div>
+        
+        <form class="email-form" onsubmit="event.preventDefault(); alert('Thank you for your interest. We will contact you at tech@quoryx.net');">
             <input type="email" class="email-input" placeholder="your@email.com" required>
             <button type="submit" class="submit-btn">JOIN WAITLIST</button>
         </form>
+        
+        <div class="contact-info">
+            Questions? <a href="mailto:tech@quoryx.net">tech@quoryx.net</a>
+        </div>
 
         <div class="features">
             <div class="feature">
@@ -259,6 +530,19 @@
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-company">© 2026 Quoryx Services</div>
+                <div class="footer-location">Copenhagen, Denmark</div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/company/quoryx" class="footer-link" target="_blank">LinkedIn</a>
+                <a href="/privacy.html" class="footer-link">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // QRX hexagon pattern - matching reference image exactly
